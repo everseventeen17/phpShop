@@ -2,7 +2,7 @@
 defined('VG_ACCESS') or die('Access denied');
 
 const TEMPLATE = "templates/default/";
-const ADMIN_TEMPLATES = "core/admin/views";
+const ADMIN_TEMPLATE = "core/admin/views";
 const COOKIE_VERSION = "1.0.0";
 const COOKIE_TIME = "60";
 const CRYPT_KEY = "";
@@ -21,5 +21,10 @@ const USER_CSS_JS  = [
 ];
 
 
-
-
+function autoloader ($class_name){
+    $class_name = str_replace('\\', '/', $class_name);
+    if(!@include_once $class_name . '.php'){
+        throw new RouteException('Не верное имя файля для подключения - '  . $class_name);
+    }
+}
+spl_autoload_register('autoloader');
