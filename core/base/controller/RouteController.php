@@ -38,9 +38,10 @@ class RouteController
         if ($path === PATH) {
             $this->routes = Settings::get('routes');
             if (!$this->routes) throw new RouteExceptions('Error');
+            $url = explode('/', substr($adress_str, strlen(PATH)));
 
-            if (strpos($adress_str, $this->routes['admin']['alias']) === strlen(PATH)) {
-                $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
+            if ($url[0] and $url[0] === $this->routes['admin']['alias'] ) {
+                array_shift($url);
                 if ($url[0] and is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) {
                     $plugin = array_shift($url);
                     $pluginSettings = $this->routes['settings']['path'] . ucfirst($plugin . 'Settings');
@@ -53,16 +54,13 @@ class RouteController
                     $this->controller = $this->routes['plugins']['path'] . $plugin . $dir;
                     $hrUtl = $this->routes['plugins']['hrURL'];
                     $route = 'plugins';
-
-
                 } else {
                     $this->controller = $this->routes['admin']['path'];
                     $hrUtl = $this->routes['admin']['hrURL'];
                     $route = 'admin';
                 }
-
             } else {
-                $url = explode('/', substr($adress_str, strlen(PATH)));
+
                 $hrUrl = $this->routes['user']['hrURL'];
                 $this->controller = $this->routes['user']['path'];
                 $route = 'user';
@@ -87,9 +85,6 @@ class RouteController
                     }
                 }
             }
-            echo "<pre>";
-            print_r($this);
-            echo "</pre>";
             exit();
         } else {
             try {
