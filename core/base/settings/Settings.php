@@ -7,7 +7,7 @@ class Settings
     static private $_instance;
     private $routes = [
         "admin" => [
-            "name" => "admin",
+            "alias" => "admin",
             "path" => "core/admin/controller/",
             "hrURL" => false,
 
@@ -18,16 +18,17 @@ class Settings
         "plugins" => [
             "path" => "core/plugins/",
             "hrURL" => false,
+            "dir" => false,
         ],
         "user" => [
             "path" => "core/user/controller/",
             "hrURL" => true,
             "routes" => [
-
+                "catalog" => 'site',
             ],
         ],
         "default" => [
-            "controller" => "IndexController",
+            "controller" => "indexController",
             "inputMethod" => "inputData",
             "outputMethod" => "outputData",
         ],
