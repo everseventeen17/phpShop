@@ -5,12 +5,15 @@ namespace core\base\settings;
 class Settings
 {
     static private $_instance;
+    private $templateArr = [
+        'text' => ['name', 'phone', 'adress',],
+        'textArea' => ['content',],
+    ];
     private $routes = [
         "admin" => [
             "alias" => "admin",
-            "path" => "core/admin/controller/",
+            "path" => "core/admin/controllers/",
             "hrURL" => false,
-
         ],
         "settings" => [
             "path" => "core/base/settings/",
@@ -21,7 +24,7 @@ class Settings
             "dir" => false,
         ],
         "user" => [
-            "path" => "core/user/controller/",
+            "path" => "core/user/controllers/",
             "hrURL" => true,
             "routes" => [
 
@@ -61,35 +64,34 @@ class Settings
         $baseProperties = [];
         foreach ($this as $name => $item) {
             $property = $class::get($name);
-//            $baseProperies[$name] = $property;
-
+            $baseProperties[$name] = $property;
             if (is_array($property) && is_array($item)) {
-                $baseProperties[$name] = $this->arrayMergeRecursice($this->$name, $property);
+                $baseProperties[$name] = $this->arrayMergeRecursive($this->$name, $property);
                 continue;
             }
-
-            if (!$property) $baseProperties[$name] = $this->$name;
+            if (!$property) {
+                $baseProperties[$name] = $this->$name;
+            }
         }
-    return $baseProperties;
+        return $baseProperties;
     }
 
-    public function arrayMergeRecursice()
+    public function arrayMergeRecursive()
     {
         $arrays = func_get_args();
         $base = array_shift($arrays);
-
         foreach ($arrays as $array) {
             foreach ($array as $key => $value) {
                 if (is_array($value) && is_array($base[$key])) {
-                    $base[$key] = $this->arrayMergeRecursice($base[$key], $value);
+                    $base[$key] = $this->arrayMergeRecursive($base[$key], $value);
                 } else {
                     if (is_int($key)) {
                         if (!in_array($value, $base)) {
                             array_push($base, $value);
                             continue;
                         }
-                        $base[$key] = $value;
                     }
+                    $base[$key] = $value;
                 }
             }
         }

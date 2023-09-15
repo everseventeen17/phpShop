@@ -9,23 +9,23 @@ class ShopSettings
     static private $_instance;
     private $baseSettings;
     private $routes = [
-        "plugins" => [
-            "dir" => false,
-            "routes" => [
-
-            ]
-        ]
+        "admin" => [
+            "alias" => "sudo",
+            "path" => "core/admin/controllers/",
+            "hrURL" => false,
+        ],
     ];
-
     private $templateArr = [
-        'text' => ['name', 'phone', 'adress', 'price', 'short',],
-        'textArea' => ['content', 'keywords', 'goods_content',],
+        'text' => ['price', 'short',],
+        'textArea' => ['keywords', 'goods_content',],
     ];
 
 
     static public function get($property)
     {
-        return self::instance()->$property;
+        if(isset(self::instance()->$property)){
+            return self::instance()->$property;
+        }
     }
 
     static public function instance()

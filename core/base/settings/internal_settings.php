@@ -1,4 +1,4 @@
-<?php
+ <?php
 defined('VG_ACCESS') or die('Access denied');
 
 const TEMPLATE = "templates/default/";
@@ -9,7 +9,7 @@ const CRYPT_KEY = "";
 const BLOCK_TIME = "3";
 
 const QTY = "8";
-const QTY_LINKS = "8";
+const QTY_LINKS = "3";
 
 const ADMIN_CSS_JS  = [
     "styles" => [],
@@ -24,7 +24,7 @@ const USER_CSS_JS  = [
 function autoloader ($class_name){
     $class_name = str_replace('\\', '/', $class_name);
     if(!@include_once $class_name . '.php'){
-        throw new RouteException('Не верное имя файля для подключения - '  . $class_name);
+        throw new RouteException('Не верное имя файла для подключения - '  . $class_name);
     }
 }
 spl_autoload_register('autoloader');

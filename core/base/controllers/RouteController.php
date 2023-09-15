@@ -1,8 +1,8 @@
 <?php
 
-namespace core\base\controller;
+namespace core\base\controllers;
 
-use core\base\exceptions\RouteExceptions;
+use core\base\exceptions\RouteException;
 use core\base\settings\Settings;
 use core\base\settings\ShopSettings;
 
@@ -37,7 +37,9 @@ class RouteController
         $path = substr($_SERVER['PHP_SELF'], 0, strpos($_SERVER['PHP_SELF'], 'index.php'));
         if ($path === PATH) {
             $this->routes = Settings::get('routes');
-            if (!$this->routes) throw new RouteExceptions('Error');
+            if (!$this->routes) throw new RouteException('Не описаны routes в классе Settings');
+
+
             $url = explode('/', substr($adress_str, strlen(PATH)));
 
             if ($url[0] and $url[0] === $this->routes['admin']['alias'] ) {
@@ -107,7 +109,7 @@ class RouteController
                 $this->controller .= ucfirst($arr[0] . 'Controller');
             }
         } else {
-            $this->controller .= $this->routes['default']['controller'];
+            $this->controller .= $this->routes['default']['controllers'];
         }
         $this->inputMethod = $route[1] ? $route[1] : $this->routes['default']['inputMethod'];
         $this->outputMethod = $route[2] ? $route[2] : $this->routes['default']['outputMethod'];
