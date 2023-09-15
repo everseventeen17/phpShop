@@ -38,13 +38,9 @@ class RouteController
         if ($path === PATH) {
             $this->routes = Settings::get('routes');
             if (!$this->routes) throw new RouteException('Не описаны routes в классе Settings');
-
-
-            $url = explode('/', substr($adress_str, strlen(PATH)));
-
-            if ($url[0] and $url[0] === $this->routes['admin']['alias'] ) {
-                array_shift($url);
-                if ($url[0] and is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) {
+            if (strpos($adress_str, $this->routes['admin']['alias']) ===strlen(PATH) ) { //админка
+                $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
+                if ($url[0] and is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) { // если плагин
                     $plugin = array_shift($url);
                     $pluginSettings = $this->routes['settings']['path'] . ucfirst($plugin . 'Settings');
                     if (file_exists($_SERVER['DOCUMENT_ROOT'] . PATH . $pluginSettings . 'php')) {
@@ -54,15 +50,15 @@ class RouteController
                     $dir = $this->routes['plugins']['dir'] ? '/' . $this->routes['plugins']['dir'] . '/' : '/';
                     $dir = str_replace('//', '/', $dir);
                     $this->controller = $this->routes['plugins']['path'] . $plugin . $dir;
-                    $hrUtl = $this->routes['plugins']['hrURL'];
+                    $hrURL = $this->routes['plugins']['hrURL'];
                     $route = 'plugins';
-                } else {
+                } else { // если НЕ плагин
                     $this->controller = $this->routes['admin']['path'];
-                    $hrUtl = $this->routes['admin']['hrURL'];
+                    $hrURL = $this->routes['admin']['hrURL'];
                     $route = 'admin';
                 }
-            } else {
-
+            } else { // обычный пользователь
+                $url = explode('/', substr($adress_str, strlen(PATH)));
                 $hrUrl = $this->routes['user']['hrURL'];
                 $this->controller = $this->routes['user']['path'];
                 $route = 'user';
@@ -87,7 +83,6 @@ class RouteController
                     }
                 }
             }
-            exit();
         } else {
             try {
                 throw new \Exception('Не корректная дирректория сайта');
@@ -103,7 +98,6 @@ class RouteController
         if (!empty($arr[0])) {
             if ($this->routes[$var]['routes'][$arr[0]]) {
                 $route = explode('/', $this->routes[$var]['routes'][$arr[0]]);
-
                 $this->controller .= ucfirst($route[0] . 'Controller');
             } else {
                 $this->controller .= ucfirst($arr[0] . 'Controller');
