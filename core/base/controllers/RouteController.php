@@ -40,10 +40,10 @@ class RouteController
             if (!$this->routes) throw new RouteException('Не описаны routes в классе Settings');
             if (strpos($adress_str, $this->routes['admin']['alias']) ===strlen(PATH) ) { //админка
                 $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
-                if ($url[0] and is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) { // если плагин
+                if (!empty($url[0]) and is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) { // если плагин
                     $plugin = array_shift($url);
                     $pluginSettings = $this->routes['settings']['path'] . ucfirst($plugin . 'Settings');
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . PATH . $pluginSettings . 'php')) {
+                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . PATH . $pluginSettings . '.php')) {
                         $pluginSettings = str_replace('/', '\\', $pluginSettings);
                         $this->routes = $pluginSettings::get('routes');
                     }
@@ -64,7 +64,7 @@ class RouteController
                 $route = 'user';
             }
             $this->createRoute($route, $url);
-            if ($url[1]) {
+            if (!empty($url[1])) {
                 $count = count($url);
                 $key = '';
                 if (!$hrUrl) {
@@ -103,10 +103,10 @@ class RouteController
                 $this->controller .= ucfirst($arr[0] . 'Controller');
             }
         } else {
-            $this->controller .= $this->routes['default']['controllers'];
+            $this->controller .= $this->routes['default']['controller'];
         }
-        $this->inputMethod = $route[1] ? $route[1] : $this->routes['default']['inputMethod'];
-        $this->outputMethod = $route[2] ? $route[2] : $this->routes['default']['outputMethod'];
+        $this->inputMethod = !empty($route[1]) ? $route[1] : $this->routes['default']['inputMethod'];
+        $this->outputMethod = !empty($route[2]) ? $route[2] : $this->routes['default']['outputMethod'];
         return;
     }
 

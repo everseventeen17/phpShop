@@ -9,10 +9,11 @@ class ShopSettings
     static private $_instance;
     private $baseSettings;
     private $routes = [
-        "admin" => [
-            "alias" => "sudo",
-            "path" => "core/admin/controllers/",
-            "hrURL" => false,
+        "plugins" => [
+            "dir" => 'false',
+            "routes" => [
+
+            ],
         ],
     ];
     private $templateArr = [
@@ -23,7 +24,7 @@ class ShopSettings
 
     static public function get($property)
     {
-        if(isset(self::instance()->$property)){
+        if (isset(self::instance()->$property)) {
             return self::instance()->$property;
         }
     }
