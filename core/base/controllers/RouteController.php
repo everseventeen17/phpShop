@@ -6,16 +6,10 @@ use core\base\exceptions\RouteException;
 use core\base\settings\Settings;
 use core\base\settings\ShopSettings;
 
-class RouteController
+class RouteController extends BaseController
 {
     static private $_instance;
     protected $routes;
-    protected $controller;
-    protected $inputMethod;
-    protected $outputMethod;
-    protected $parametrs;
-
-
     private function __clone()
     {
     }
@@ -38,8 +32,9 @@ class RouteController
         if ($path === PATH) {
             $this->routes = Settings::get('routes');
             if (!$this->routes) throw new RouteException('Не описаны routes в классе Settings');
-            if (strpos($adress_str, $this->routes['admin']['alias']) ===strlen(PATH) ) { //админка
-                $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
+            $url = explode('/', substr($adress_str, strlen(PATH)));
+            if (!empty($url[0]) and $url[0] === $this->routes['admin']['alias']) { //админка
+                array_shift($url);
                 if (!empty($url[0]) and is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) { // если плагин
                     $plugin = array_shift($url);
                     $pluginSettings = $this->routes['settings']['path'] . ucfirst($plugin . 'Settings');

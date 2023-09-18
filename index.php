@@ -13,7 +13,7 @@ use core\base\controllers\RouteController;
 use core\base\settings\ShopSettings;
 
 try {
-    RouteController::getInstance();
+    RouteController::getInstance()->route();
 
 } catch (RouteException $e) {
     echo "<pre>";

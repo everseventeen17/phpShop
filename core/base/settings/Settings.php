@@ -34,7 +34,7 @@ class Settings
             ],
         ],
         "default" => [
-            "controller" => "indexController",
+            "controller" => "IndexController",
             "inputMethod" => "inputData",
             "outputMethod" => "outputData",
         ],
