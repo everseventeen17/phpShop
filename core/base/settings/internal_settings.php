@@ -16,8 +16,8 @@ const ADMIN_CSS_JS  = [
     "scripts" => []
 ];
 const USER_CSS_JS  = [
-    "styles" => [],
-    "scripts" => []
+    "styles" => ['index.css'],
+    "scripts" => ['index.js']
 ];
 
 
