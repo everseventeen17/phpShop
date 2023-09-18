@@ -3,6 +3,7 @@
 namespace core\base\controllers;
 
 use core\base\exceptions\RouteException;
+use core\base\settings\Settings;
 
 abstract class BaseController
 {
@@ -36,8 +37,15 @@ abstract class BaseController
         $this->parametrs = $args['parameters'];
         $inputData = $args['inputMethod'];
         $outputData = $args['outputMethod'];
-        $this->$inputData();
-        $this->page = $this->$outputData();
+        $data = $this->$inputData();
+        if (method_exists($this, $outputData)) {
+            $page = $this->$outputData($data);
+            if ($page) {
+                $this->page = $page;
+            }
+        } elseif ($data) {
+            $this->page = $data;
+        }
         if ($this->errors) {
             $this->writeLog('error');
         }
@@ -47,17 +55,30 @@ abstract class BaseController
     protected function render($path = '', $parameters = [])
     {
         extract($parameters);
-        if(!$path){
-            $path = TEMPLATE . explode('controller', strtolower((new \ReflectionClass($this))->getShortName()))[0];
+        if (!$path) {
+            $class = new \ReflectionClass($this);
+            $space = str_replace('\\', '/', $class->getNamespaceName() . '\\');
+            $routes = Settings::get('routes');
+            if ($space === $routes['user']['path']) {
+                $template = TEMPLATE;
+            } else {
+                $template = ADMIN_TEMPLATE;
+            }
+            $path = $template . explode('controller', strtolower($class->getShortName()))[0];
         }
         ob_start();
-        if(!@include_once $path . '.php') throw new RouteException('Отсутсвтует шаблон для подключения - '  . $path);
+        if (!@include_once $path . '.php') throw new RouteException('Отсутсвтует шаблон для подключения - ' . $path);
         return ob_get_clean();
     }
 
 
     protected function getPage()
     {
-        exit($this->page);
+        if (is_array($this->page)) {
+            foreach ($this->page as $block) echo $block;
+        } else {
+            echo $this->page;
+        }
+        exit();
     }
 }
