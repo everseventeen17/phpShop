@@ -30,7 +30,6 @@ class Settings
             "path" => "core/user/controllers/",
             "hrURL" => true,
             "routes" => [
-
             ],
         ],
         "default" => [

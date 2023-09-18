@@ -5,4 +5,8 @@ use core\base\controllers\BaseController;
 class IndexController extends BaseController
 {
 
+    protected function inputData(){
+
+    }
+
 }
