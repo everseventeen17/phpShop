@@ -3,3 +3,7 @@ Fault: 19-09-2023 11:09:41 - Не верное имя файла для подк
 fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
 in line27
 
+Fault: 19-09-2023 11:21:39 - Method core\admin\controllers\IndexController::request() does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
