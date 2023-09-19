@@ -18,11 +18,11 @@ class IndexController extends BaseController
         $table = 'teachers';
         $res = $db->get($table, [
             'fields' => ['id', 'name'],
-            'where' => ['id' => 1, 'name' => 'Masha'],
-            'operand' => [ '<>', '=' ],
+            'where' => ['name' => 'Masha, Olya, Sveta','name' => 'Masha', 'Surname'=>'Sergeevna'],
+            'operand' => [ 'IN', '<>' ],
             'condition'=> ['AND'],
-            'order' => ['name', 'surname'],
-            'order_direction' => ['ASC', 'DESC'],
+            'order' => ['fio', 'name'],
+            'order_direction' => ['DESC'],
             'limit' => '1',
         ]);
         $res = $db->query($querry);

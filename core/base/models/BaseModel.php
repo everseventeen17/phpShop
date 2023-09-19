@@ -66,34 +66,85 @@ class BaseModel
         return $this->query($query);
     }
 
-    protected function createFields($table, $set){
+    protected function createFields($table, $set)
+    {
         $set['fields'] = (is_array($set['fields']) and !empty($set['fields'])) ? $set['fields'] : ['*'];
         $table = $table ? $table . '.' : '';
         $fields = '';
-        foreach ($set['fields'] as $field){
+        foreach ($set['fields'] as $field) {
             $fields .= $table . $field . ',';
         }
-        return$fields;
+        return $fields;
     }
-    protected function createOrder($table, $set){
+
+    protected function createOrder($table, $set)
+    {
         $table = $table ? $table . '.' : '';
         $order_by = '';
-        if(is_array($set['order']) and !empty($set['order'])){
+        if (is_array($set['order']) and !empty($set['order'])) {
             $set['order_direction'] = (is_array($set['order_direction']) and !empty($set['order_direction'])) ? $set['order_direction'] : ['ASC'];
             $order_by = 'ORDER_BY ';
             $direct_count = 0;
-            foreach ($set['order'] as $order){
-                if($set['order_direction'][$direct_count]){
+            foreach ($set['order'] as $order) {
+                if ($set['order_direction'][$direct_count]) {
                     $order_direction = strtoupper($set['order_direction'][$direct_count]);
                     $direct_count++;
-                }else{
-                    $order_direction = strtoupper($set['order_direction'][$direct_count -1]);
+                } else {
+                    $order_direction = strtoupper($set['order_direction'][$direct_count - 1]);
                 }
-                $order_by .= $table .$order . " " . $order_direction . ",";
+                $order_by .= $table . $order . " " . $order_direction . ",";
             }
             $order_by = rtrim($order_by, ',');
         }
         return $order_by;
+    }
+
+    protected function createWhere($table = false, $set, $instruction = 'WHERE')
+    {
+        $table = $table ? $table . '.' : '';
+        $where = '';
+
+        if (is_array($set['where']) and !empty($set['where'])) {
+            $set['operand'] = (is_array($set['operand']) and !empty($set['operand'])) ? $set['operand'] : ['='];
+            $set['condition'] = (is_array($set['condition']) and !empty($set['condition'])) ? $set['condition'] : ['AND'];
+
+            $where = $instruction;
+            $o_count = 0;
+            $c_count = 0;
+            foreach ($set['where'] as $key => $value) {
+                $where .= ' ';
+                if (!empty($set['operand'][$o_count])) {
+                    $operand = $set['operand'][$o_count];
+                    $o_count++;
+                } else {
+                    $operand = $set['operand'][$o_count - 1];
+                }
+
+                if (!empty($set['condition'][$c_count])) {
+                    $condition = $set['condition'][$c_count];
+                    $c_count++;
+                } else {
+                    $condition = $set['condition'][$c_count - 1];
+                }
+                if ($operand === 'IN' or $operand === 'NOT_IN') {
+                    if (is_string($value) and strpos($value, "SELECT")) {
+                        $in_str = $value;
+                    }else{
+                        if(is_array($value)) $temp_item = $value;
+                            else $temp_item = explode (',', $value);
+                        $in_str = '';
+                        foreach ($temp_item as $v){
+                            $in_str .= "'" . trim($v) . "',";
+                        }
+                    }
+
+                }
+                $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
+                exit();
+            }
+
+        }
+
     }
 
 }
