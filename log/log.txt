@@ -1,0 +1,5 @@
+
+Fault: 19-09-2023 11:09:41 - Не верное имя файла для подключения - core/base/controllers/Nclass
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line27
+

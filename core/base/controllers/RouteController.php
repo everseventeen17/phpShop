@@ -4,7 +4,6 @@ namespace core\base\controllers;
 
 use core\base\exceptions\RouteException;
 use core\base\settings\Settings;
-use core\base\settings\ShopSettings;
 
 class RouteController extends BaseController
 {
@@ -20,7 +19,7 @@ class RouteController extends BaseController
         $path = substr($_SERVER['PHP_SELF'], 0, strpos($_SERVER['PHP_SELF'], 'index.php'));
         if ($path === PATH) {
             $this->routes = Settings::get('routes');
-            if (!$this->routes) throw new RouteException('Не описаны routes в классе Settings');
+            if (!$this->routes) throw new RouteException('Не описаны routes в классе Settings', 1);
             $url = explode('/', substr($adress_str, strlen(PATH)));
             if (!empty($url[0]) and $url[0] === $this->routes['admin']['alias']) { //админка
                 array_shift($url);
@@ -68,11 +67,7 @@ class RouteController extends BaseController
                 }
             }
         } else {
-            try {
-                throw new \Exception('Не корректная дирректория сайта');
-            } catch (\Exception $e) {
-                exit($e->getMessage());
-            }
+            throw new RouteException('Не корректная дирректория сайта', 1);
         }
     }
 
