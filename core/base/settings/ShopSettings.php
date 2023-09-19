@@ -1,12 +1,11 @@
 <?php
 
 namespace core\base\settings;
-
 use core\base\settings\Settings;
 
 class ShopSettings
 {
-    static private $_instance;
+    use \core\base\controllers\Singleton;
     private $baseSettings;
     private $routes = [
         "plugins" => [
@@ -24,18 +23,17 @@ class ShopSettings
 
     static public function get($property)
     {
-        if (isset(self::instance()->$property)) {
-            return self::instance()->$property;
+        if (isset(self::getInstance()->$property)) {
+            return self::getInstance()->$property;
         }
     }
 
-    static public function instance()
+    static private function getInstance()
     {
         if (self::$_instance instanceof self) {
             return self::$_instance;
         }
-        self::$_instance = new self;
-        self::$_instance->baseSettings = Settings::instance();
+        self::instance()->baseSettings = Settings::instance();
         $baseProperties = self::$_instance->baseSettings->clueProperties(get_class());
         self::$_instance->setProperty($baseProperties);
         return self::$_instance;
@@ -49,14 +47,4 @@ class ShopSettings
             }
         }
     }
-
-
-    private function __construct()
-    {
-    }
-
-    private function __clone()
-    {
-    }
-
 }

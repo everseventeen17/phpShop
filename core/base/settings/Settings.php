@@ -4,7 +4,7 @@ namespace core\base\settings;
 
 class Settings
 {
-    static private $_instance;
+    use \core\base\controllers\Singleton;
     private $templateArr = [
         'text' => ['name', 'phone', 'adress',],
         'textArea' => ['content',],
@@ -40,25 +40,10 @@ class Settings
     ];
 
 
-    private function __construct()
-    {
-    }
-
-    private function __clone()
-    {
-    }
 
     static public function get($property)
     {
         return self::instance()->$property;
-    }
-
-    static public function instance()
-    {
-        if (self::$_instance instanceof self) {
-            return self::$_instance;
-        }
-        return self::$_instance = new self;
     }
 
     public function clueProperties($class)
