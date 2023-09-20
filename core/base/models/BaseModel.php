@@ -126,25 +126,42 @@ class BaseModel
                 } else {
                     $condition = $set['condition'][$c_count - 1];
                 }
-                if ($operand === 'IN' or $operand === 'NOT_IN') {
+
+                if ($operand === 'IN' or $operand === 'NOT IN') {
                     if (is_string($value) and strpos($value, "SELECT")) {
                         $in_str = $value;
                     }else{
                         if(is_array($value)) $temp_item = $value;
-                            else $temp_item = explode (',', $value);
+                            else $temp_item = explode(',', $value);
                         $in_str = '';
                         foreach ($temp_item as $v){
                             $in_str .= "'" . trim($v) . "',";
                         }
                     }
-
+                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
+                }elseif(strpos($operand, 'LIKE') !== false ){
+                    $like_template = explode('%', $operand);
+                    foreach ($like_template as $lt_key => $lt){
+                        if(!$lt){
+                            if(!$lt_key){
+                                $value = '%' . $value;
+                            }else{
+                                $value .= '%';
+                            }
+                        }
+                    }
+                    $where .= $table . $key . ' LIKE ' . "'" . $value . "' $condition";
+                }else{
+                    if(strpos($value, 'SELECT') === 0){
+                        $where .= $table . $key . $operand . '(' . $value . ') ' . " $condition";
+                    }else{
+                        $where .= $table . $key . $operand . "'" . $value . "'" . " $condition";
+                    }
                 }
-                $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
-                exit();
             }
-
+            $where = substr($where, 0, strrpos($where, $condition));
         }
-
+        return $where;
     }
 
 }
