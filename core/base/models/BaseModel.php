@@ -59,26 +59,26 @@ class BaseModel
      * 'order_direction' => ['DESC'],
      * 'limit' => '1',
      * 'join' => [
-     * 'join_table' => [
-     * 'table' => 'teachers',
-     * 'fields' => ['id as j_id', 'name as J_name'],
-     * 'type' => 'left',
-     * 'where' => ['name' => 'Sasha'],
-     * 'operand' => ['='],
-     * 'condition' => ['OR'],
-     * 'on' =>['id', 'parent_id']
-     * ],
-     * 'join_table2' => [
-     * 'table' => 'teachers',
-     * 'fields' => ['id as j_id', 'name as J_name'],
-     * 'type' => 'left',
-     * 'where' => ['name' => 'Sasha'],
-     * 'operand' => ['='],
-     * 'condition' => ['OR'],
-     * 'on' =>[
-     * 'table'=> 'teachers',
-     * 'fields'=>['id', 'parent_id']
-     * ]
+     *      'join_table' => [
+     *      'table' => 'teachers',
+     *      'fields' => ['id as j_id', 'name as J_name'],
+     *      'type' => 'left',
+     *      'where' => ['name' => 'Sasha'],
+     *      'operand' => ['='],
+     *      'condition' => ['OR'],
+     *      'on' =>['id', 'parent_id']
+     *      ],
+     *      'join_table2' => [
+     *      'table' => 'teachers',
+     *      'fields' => ['id as j_id', 'name as J_name'],
+     *      'type' => 'left',
+     *      'where' => ['name' => 'Sasha'],
+     *      'operand' => ['='],
+     *      'condition' => ['OR'],
+     *      'on' =>[
+     *      'table'=> 'teachers',
+     *      'fields'=>['id', 'parent_id']
+     *      ]
      * ]
      * ]
      */
@@ -103,6 +103,9 @@ class BaseModel
         $limit = isset($set['limit']) ? 'LIMIT ' . $set['limit'] : '';
 
         $query = "SELECT $fields FROM $table $join $where $order $limit";
+        echo "<pre>";
+        print_r($query);
+        echo "</pre>";
         return $this->query($query);
     }
 
@@ -124,7 +127,7 @@ class BaseModel
         $order_by = '';
         if (is_array($set['order']) and !empty($set['order'])) {
             $set['order_direction'] = (is_array($set['order_direction']) and !empty($set['order_direction'])) ? $set['order_direction'] : ['ASC'];
-            $order_by = 'ORDER_BY ';
+            $order_by = 'ORDER BY ';
             $direct_count = 0;
             foreach ($set['order'] as $order) {
                 if (!empty($set['order_direction'][$direct_count])) {
@@ -134,7 +137,7 @@ class BaseModel
                     $order_direction = strtoupper($set['order_direction'][$direct_count - 1]);
                 }
                 if (is_int($order)) $order_by .= $order . ' ' . $order_direction . ",";
-                $order_by .= $table . $order . " " . $order_direction . ",";
+                 else $order_by .= $table . $order . " " . $order_direction . ",";
             }
             $order_by = rtrim($order_by, ',');
         }
@@ -147,8 +150,8 @@ class BaseModel
         $where = '';
 
         if (is_array($set['where']) and !empty($set['where'])) {
-            $set['operand'] = (is_array($set['operand']) and !empty($set['operand'])) ? $set['operand'] : ['='];
-            $set['condition'] = (is_array($set['condition']) and !empty($set['condition'])) ? $set['condition'] : ['AND'];
+            @$set['operand'] = (is_array($set['operand']) and !empty($set['operand'])) ? $set['operand'] : ['='];
+            @$set['condition'] = (is_array($set['condition']) and !empty($set['condition'])) ? $set['condition'] : ['AND'];
 
             $where = $instruction;
             $o_count = 0;
@@ -214,6 +217,7 @@ class BaseModel
         if (!empty($set['join'])) {
             $join_table = $table;
             foreach ($set['join'] as $key => $item) {
+                $a = $key;
                 if (is_int($key)) {
                     if (!isset($item['table'])) continue;
                     else $key = $item['table'];

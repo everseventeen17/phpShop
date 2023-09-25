@@ -15,16 +15,16 @@ class IndexController extends BaseController
 
         $table = 'teachers';
         $color = ['red', 'blue', 'black'];
-        $res = $db->get($table, [
+        $querry = $db->get($table, [
             'fields' => ['id', 'name'],
-            'where' => ['name' => "O'Riley"],
-            'operand' => ['IN', '<>'],
-            'condition' => ['OR', 'AND'],
-            'order' => ['fio', 'name'],
+            'where' => ['name' => "Masha"],
+//            'operand' => ['IN', '<>'],
+//            'condition' => ['AND', 'OR'],
+            'order' => ['id'],
             'order_direction' => ['DESC'],
-            'limit' => '1',
+//            'limit' => '1',
             'join' => [
-                'join_table' => [
+                1 => [
                     'table' => 'join_table1',
                     'fields' => ['id as j_id', 'name as J_name'],
                     'type' => 'left',
@@ -36,20 +36,20 @@ class IndexController extends BaseController
                         'fields'=>['id', 'parent_id']
                     ]
                 ],
-//                'join_table2' => [
-//                    'table' => 'join_table2',
-//                    'fields' => ['id as j_id', 'name as J_name'],
-//                    'type' => 'left',
-//                    'where' => ['name' => 'Sasha'],
-//                    'operand' => ['<>'],
-//                    'condition' => ['AND'],
-//                    'on' =>[
-//                        'table'=> 'teachers',
-//                        'fields'=>['id', 'parent_id']
-//                    ]
-//                ]
+                2 => [
+                    'table' => 'join_table2',
+                    'fields' => ['id as j_id', 'name as J_name'],
+                    'type' => 'left',
+                    'where' => ['name' => 'Sasha'],
+                    'operand' => ['<>'],
+                    'condition' => ['AND'],
+                    'on' =>[
+                        'table'=> 'teachers',
+                        'fields'=>['id', 'parent_id']
+                    ]
+                ]
             ]
         ]);
-//        $res = $db->query($querry);
+
     }
 }

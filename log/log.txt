@@ -7,3 +7,19 @@ Fault: 19-09-2023 11:21:39 - Method core\admin\controllers\IndexController::requ
 fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
 in line61
 
+Fault: 21-09-2023 16:48:53 - Class "core\user\controllers\CodeArray.phpController" does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
+Fault: 21-09-2023 16:48:53 - Class "core\user\controllers\CodeArray.phpController" does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
+Fault: 21-09-2023 16:49:18 - Class "core\user\controllers\CodeArray.phpController" does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
+Fault: 21-09-2023 16:49:18 - Class "core\user\controllers\CodeArray.phpController" does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+

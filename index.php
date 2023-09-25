@@ -21,12 +21,3 @@ try {
     print_r($e->getMessage());
     echo "</pre>";
 }
-
-try {
-    RouteController::instance()->route();
-
-} catch (DbException $e) {
-    echo "<pre>";
-    print_r($e->getMessage());
-    echo "</pre>";
-}
