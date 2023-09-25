@@ -1,0 +1,64 @@
+Fault: 25-09-2023 12:46:58 - Ошибка в SQL запросе SELECT teachers.id,teachers.name,join_table1.id as j_id,join_table1.name as J_name,join_table2.id as j_id,join_table2.name as J_name FROM teachers LEFT JOIN join_table1 ON teachers.id=join_table1.parent_id LEFT JOIN join_table2 ON teachers.id=join_table2.parent_id WHERE teachers.name='Masha' AND join_table1.name<>'Sasha' AND join_table2.name<>'Sasha'  ORDER BY teachers.id DESC  - 1146 Table 'phpshop.join_table1' doesn't exist
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:41:57 - Ошибка в SQL запросе INSERT INTO teachers (gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:42:46 - Ошибка в SQL запросе INSERT INTO teachers (gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:44:01 - Ошибка в SQL запросе INSERT INTO teachers (gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:46:42 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:46:47 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:46:51 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:49:19 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img,) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',)' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:52:22 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:53:22 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 16:55:34 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 17:01:08 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('Olga','text','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 17:01:16 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('Olga','text','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 17:01:19 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('Olga','text','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 17:01:30 - Ошибка в SQL запросе INSERT INTO teachers (name,text,gallery_img,img) VALUES ('Olga','text','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1054 Unknown column 'img' in 'field list'
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 25-09-2023 17:05:41 - Ошибка в SQL запросе INSERT INTO teachers (text,gallery_img,img) VALUES ('text','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1364 Field 'name' doesn't have a default value
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+

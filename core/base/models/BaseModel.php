@@ -4,7 +4,7 @@ namespace core\base\models;
 
 use core\base\exceptions\DbException;
 
-class BaseModel
+class BaseModel extends BaseModelMethods
 {
     use \core\base\controllers\Singleton;
 
@@ -19,6 +19,13 @@ class BaseModel
         $this->db->query("SET NAMES UTF8");
     }
 
+    /**
+     * @param $query
+     * @param $crud =  r - SELECT, c - INSERT, u - UPDATE, d - DELETE
+     * @param $return_id
+     * @return array|bool
+     * @throws DbException
+     */
     final public function query($query, $crud = 'r', $return_id = false)
     {
         $result = $this->db->query($query);
@@ -109,160 +116,28 @@ class BaseModel
         return $this->query($query);
     }
 
-    protected function createFields($table, $set)
+    /**
+     * @param $table - таблица для вставки данных
+     * @param array $set - массив параметров:
+     * fields => [поле => значение]; - если не указан, то обрабатывается $_POST[поле => значение]
+     * разрешена передача NOW() в качестве MySql функции обычной строкой
+     * files => [поле => значение]; - можно подать массив вида [поле => [массив значений]]
+     * except => ['исключение 1', 'исключение 2'] - исключает данные элементы массива из       добавленных в запрос
+     * return_id => true | false - возвращать или нет идентификатор вставленной записи
+     * @return mixed
+     */
+    final public function add($table, $set)
     {
-        $set['fields'] = (is_array($set['fields']) and !empty($set['fields'])) ? $set['fields'] : ['*'];
-        $table = $table ? $table . '.' : '';
-        $fields = '';
-        foreach ($set['fields'] as $field) {
-            $fields .= $table . $field . ',';
+        @$set['fields'] = (is_array($set['fields']) and !empty($set['fields'])) ? $set['fields'] : false;
+        @$set['files'] = (is_array($set['files']) and !empty($set['files'])) ? $set['files'] : false;
+        @$set['return_id'] = (!empty($set['return_id'])) ? true : false;
+        @$set['except'] = (is_array($set['except']) and !empty($set['except'])) ? $set['except'] : false;
+        $insert_arr = $this->createInsert($set['fields'], $set['files'], $set['except']);
+        if (!empty($insert_arr)) {
+            $query = "INSERT INTO $table ({$insert_arr['fields']}) VALUES ({$insert_arr['values']})";
+            return $this->query($query, 'c', $set['return_id']);
         }
-        return $fields;
     }
 
-    protected function createOrder($table, $set)
-    {
-
-        $table = $table ? $table . '.' : '';
-        $order_by = '';
-        if (is_array($set['order']) and !empty($set['order'])) {
-            $set['order_direction'] = (is_array($set['order_direction']) and !empty($set['order_direction'])) ? $set['order_direction'] : ['ASC'];
-            $order_by = 'ORDER BY ';
-            $direct_count = 0;
-            foreach ($set['order'] as $order) {
-                if (!empty($set['order_direction'][$direct_count])) {
-                    $order_direction = strtoupper($set['order_direction'][$direct_count]);
-                    $direct_count++;
-                } else {
-                    $order_direction = strtoupper($set['order_direction'][$direct_count - 1]);
-                }
-                if (is_int($order)) $order_by .= $order . ' ' . $order_direction . ",";
-                 else $order_by .= $table . $order . " " . $order_direction . ",";
-            }
-            $order_by = rtrim($order_by, ',');
-        }
-        return $order_by;
-    }
-
-    protected function createWhere( $set, $table = false,  $instruction = 'WHERE')
-    {
-        $table = $table ? $table . '.' : '';
-        $where = '';
-
-        if (is_array($set['where']) and !empty($set['where'])) {
-            @$set['operand'] = (is_array($set['operand']) and !empty($set['operand'])) ? $set['operand'] : ['='];
-            @$set['condition'] = (is_array($set['condition']) and !empty($set['condition'])) ? $set['condition'] : ['AND'];
-
-            $where = $instruction;
-            $o_count = 0;
-            $c_count = 0;
-            foreach ($set['where'] as $key => $value) {
-                $where .= ' ';
-                if (!empty($set['operand'][$o_count])) {
-                    $operand = $set['operand'][$o_count];
-                    $o_count++;
-                } else {
-                    $operand = $set['operand'][$o_count - 1];
-                }
-
-                if (!empty($set['condition'][$c_count])) {
-                    $condition = $set['condition'][$c_count];
-                    $c_count++;
-                } else {
-                    $condition = $set['condition'][$c_count - 1];
-                }
-
-                if ($operand === 'IN' or $operand === 'NOT IN') {
-                    if (is_string($value) and strpos($value, "SELECT") === 0) {
-                        $in_str = $value;
-                    } else {
-                        if (is_array($value)) $temp_item = $value;
-                        else $temp_item = explode(',', $value);
-                        $in_str = '';
-                        foreach ($temp_item as $v) {
-                            $in_str .= "'" . addslashes(trim($v)) . "',";
-                        }
-                    }
-                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
-                } elseif (strpos($operand, 'LIKE') !== false) {
-                    $like_template = explode('%', $operand);
-                    foreach ($like_template as $lt_key => $lt) {
-                        if (!$lt) {
-                            if (!$lt_key) {
-                                $value = '%' . $value;
-                            } else {
-                                $value .= '%';
-                            }
-                        }
-                    }
-                    $where .= $table . $key . ' LIKE ' . "'" . addslashes($value) . "' $condition";
-                } else {
-                    if (strpos($value, 'SELECT') === 0) {
-                        $where .= $table . $key . $operand . '(' . $value . ') ' . " $condition";
-                    } else {
-                        $where .= $table . $key . $operand . "'" . addslashes($value) . "'" . " $condition";
-                    }
-                }
-            }
-            $where = substr($where, 0, strrpos($where, $condition));
-        }
-        return $where;
-    }
-
-    protected function createJoin($table, $set, $new_where = false)
-    {
-        $fields = '';
-        $join = '';
-        $where = '';
-        if (!empty($set['join'])) {
-            $join_table = $table;
-            foreach ($set['join'] as $key => $item) {
-                $a = $key;
-                if (is_int($key)) {
-                    if (!isset($item['table'])) continue;
-                    else $key = $item['table'];
-                }
-                if ($join) $join .= ' ';
-
-                if (!empty($item['on'])) {
-
-                    $join_fields = [];
-                    switch (2) {
-
-                        case isset($item['on']['fields']) && count($item['on']['fields']):
-                            $join_fields = $item['on']['fields'];
-                            break;
-                        case count($item['on']) :
-                            $join_fields = $item['on'];
-                            break;
-                        default:
-                            continue 2;
-                            break;
-                    }
-                    if (!empty($item['type'])) $join .= 'LEFT JOIN ';
-                    else $join .= trim(strtoupper($item['type'])) . ' JOIN ';
-
-                    $join .= $key . ' ON ';
-                    if ($item['on']['table']) $join .= $item['on']['table'];
-                    else $join .= $join_table;
-
-                    $join .= '.' . $join_fields[0] . '=' . $key . '.' . $join_fields[1];
-                    $join_table = $key;
-                    if ($new_where) {
-                        if ($item['where']) {
-                            $new_where = false;
-                        }
-                        $group_condition = 'WHERE';
-
-                    } else {
-                        $group_condition = isset($item['group_condition']) ? strtoupper($item['group_condition']) : 'AND';
-                    }
-                    $fields .= $this->createFields($key, $item);
-                    $where .= $this->createWhere($item, $key, $group_condition);
-                }
-            }
-        }
-        return compact('fields', 'where', 'join');
-    }
 
 }

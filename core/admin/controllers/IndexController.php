@@ -14,42 +14,14 @@ class IndexController extends BaseController
 
 
         $table = 'teachers';
-        $color = ['red', 'blue', 'black'];
-        $querry = $db->get($table, [
-            'fields' => ['id', 'name'],
-            'where' => ['name' => "Masha"],
-//            'operand' => ['IN', '<>'],
-//            'condition' => ['AND', 'OR'],
-            'order' => ['id'],
-            'order_direction' => ['DESC'],
-//            'limit' => '1',
-            'join' => [
-                1 => [
-                    'table' => 'join_table1',
-                    'fields' => ['id as j_id', 'name as J_name'],
-                    'type' => 'left',
-                    'where' => ['name' => 'Sasha'],
-                    'operand' => ['<>'],
-                    'condition' => ['AND'],
-                    'on' =>[
-                        'table'=> 'teachers',
-                        'fields'=>['id', 'parent_id']
-                    ]
-                ],
-                2 => [
-                    'table' => 'join_table2',
-                    'fields' => ['id as j_id', 'name as J_name'],
-                    'type' => 'left',
-                    'where' => ['name' => 'Sasha'],
-                    'operand' => ['<>'],
-                    'condition' => ['AND'],
-                    'on' =>[
-                        'table'=> 'teachers',
-                        'fields'=>['id', 'parent_id']
-                    ]
-                ]
-            ]
+        $files['gallery_img'] = ['red.jpg', 'blue.jpg', 'black.jpg'];
+        $files['img'] = 'main_img.jpg';
+        $querry = $db->add($table, [
+            'fields' => ['name' => 'Olga', 'text' => 'text'],
+           'except' => ['name'],
+            'files' => $files,
         ]);
+        exit(print_r($querry));
 
     }
 }
