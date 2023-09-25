@@ -16,12 +16,10 @@ class IndexController extends BaseController
         $table = 'teachers';
         $files['gallery_img'] = ['red.jpg', 'blue.jpg', 'black.jpg'];
         $files['img'] = 'main_img.jpg';
-        $querry = $db->add($table, [
-            'fields' => ['name' => 'Olga', 'text' => 'text'],
-           'except' => ['name'],
-            'files' => $files,
-        ]);
-        exit(print_r($querry));
+        $querry = $db->showColumns($table);
+        echo "<pre>";
+        print_r($querry);
+        echo "</pre>";
 
     }
 }

@@ -53,6 +53,21 @@ class BaseModel extends BaseModelMethods
         }
     }
 
+    final function showColumns($table)
+    {
+        $query = "SHOW COLUMNS FROM $table";
+        $res = $this->query($query);
+        $columns = [];
+        if (!empty($res)) {
+            foreach ($res as $row) {
+                $columns[$row['Field']] = $row;
+                if (@$row['Key'] === 'PRI') {
+                    $columns['id_row'] = $row['Field'];
+                }
+            }
+        }
+        return $columns;
+    }
 
     /**
      * @param $table - Таблици базы данных
@@ -128,8 +143,10 @@ class BaseModel extends BaseModelMethods
      */
     final public function add($table, $set)
     {
-        @$set['fields'] = (is_array($set['fields']) and !empty($set['fields'])) ? $set['fields'] : false;
+        @$set['fields'] = (is_array($set['fields']) and !empty($set['fields'])) ? $set['fields'] : $_POST;
         @$set['files'] = (is_array($set['files']) and !empty($set['files'])) ? $set['files'] : false;
+        if (!$set['fields'] and !$set['files']) return false;
+
         @$set['return_id'] = (!empty($set['return_id'])) ? true : false;
         @$set['except'] = (is_array($set['except']) and !empty($set['except'])) ? $set['except'] : false;
         $insert_arr = $this->createInsert($set['fields'], $set['files'], $set['except']);
@@ -137,6 +154,10 @@ class BaseModel extends BaseModelMethods
             $query = "INSERT INTO $table ({$insert_arr['fields']}) VALUES ({$insert_arr['values']})";
             return $this->query($query, 'c', $set['return_id']);
         }
+    }
+
+    final public function edit($set){
+
     }
 
 

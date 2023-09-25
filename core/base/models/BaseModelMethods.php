@@ -162,9 +162,6 @@ abstract class BaseModelMethods
 
     protected function createInsert($fields, $files, $except)
     {
-        if (empty($fields)) {
-            $fields = $_POST;
-        }
         $insert_arr = [];
         if ($fields) {
             $sql_func = ['NOW()'];
@@ -173,7 +170,7 @@ abstract class BaseModelMethods
                 @$insert_arr['fields'] .= $row . ',';
                 if (in_array($value, $sql_func)) {
                     $insert_arr['values'] .= $value . ",";
-                }else{
+                } else {
                     @$insert_arr['values'] .= "'" . addslashes($value) . "',";
                 }
             }
@@ -188,9 +185,9 @@ abstract class BaseModelMethods
                 }
             }
         }
-        if ($insert_arr) {
-            foreach ($insert_arr as $key => $arr) $insert_arr[$key] = rtrim($arr, ',');
-        }
+
+        foreach ($insert_arr as $key => $arr) $insert_arr[$key] = rtrim($arr, ',');
+
         return $insert_arr;
     }
 }
