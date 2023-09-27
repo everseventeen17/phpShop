@@ -14,9 +14,12 @@ class IndexController extends BaseController
 
 
         $table = 'teachers';
-        $files['gallery_img'] = ['red.jpg', 'blue.jpg', 'black.jpg'];
-        $files['img'] = 'main_img.jpg';
-        $querry = $db->showColumns($table);
+        $_POST['id'] = 3;
+        $_POST['name'] = 'OKSANSA';
+        $_POST['text'] = 'TOP TEXT IN THE WORLD';
+
+        $querry = $db->edit($table);
+
         echo "<pre>";
         print_r($querry);
         echo "</pre>";

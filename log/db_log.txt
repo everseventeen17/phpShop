@@ -62,3 +62,7 @@ Fault: 25-09-2023 17:05:41 - Ошибка в SQL запросе INSERT INTO teac
 fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
 in line33
 
+Fault: 27-09-2023 10:54:54 - Ошибка в SQL запросе UPDATE teachers SET name='NAME',gallery_img='[\"red.jpg\"]' @ - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
