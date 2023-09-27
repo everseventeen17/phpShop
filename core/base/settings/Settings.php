@@ -5,10 +5,12 @@ namespace core\base\settings;
 class Settings
 {
     use \core\base\controllers\Singleton;
+
     private $templateArr = [
         'text' => ['name', 'phone', 'adress',],
         'textArea' => ['content',],
     ];
+    private $dafaultTable = ['table' => 'teachers'];
     private $routes = [
         "admin" => [
             "alias" => "admin",
@@ -38,7 +40,6 @@ class Settings
             "outputMethod" => "outputData",
         ],
     ];
-
 
 
     static public function get($property)

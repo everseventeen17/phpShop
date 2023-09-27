@@ -53,7 +53,7 @@ class BaseModel extends BaseModelMethods
         }
     }
 
-    final function showColumns($table)
+    final public function showColumns($table)
     {
         $query = "SHOW COLUMNS FROM $table";
         $res = $this->query($query);

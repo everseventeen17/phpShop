@@ -126,3 +126,11 @@ Fault: 27-09-2023 14:45:05 - Ошибка в SQL запросе DELETE teachers 
 fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
 in line33
 
+Fault: 27-09-2023 16:34:41 - Ошибка в SQL запросе SHOW COLUMNS FROM  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 16:50:18 - Ошибка в SQL запросе SHOW COLUMNS FROM Array - 1146 Table 'phpshop.array' doesn't exist
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+

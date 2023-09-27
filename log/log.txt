@@ -23,3 +23,15 @@ Fault: 21-09-2023 16:49:18 - Class "core\user\controllers\CodeArray.phpControlle
 fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
 in line61
 
+Fault: 27-09-2023 15:56:27 - Method core\admin\controllers\ShowController::request() does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
+Fault: 27-09-2023 15:56:53 - Method core\admin\controllers\ShowController::request() does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
+Fault: 27-09-2023 15:57:53 - Method core\admin\controllers\ShowController::request() does not exist
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line61
+
