@@ -8,7 +8,7 @@ abstract class BaseModelMethods
 
     protected function createFields($table, $set)
     {
-        $set['fields'] = (is_array($set['fields']) and !empty($set['fields'])) ? $set['fields'] : ['*'];
+        $set['fields'] = (!empty($set['fields']) and is_array($set['fields'])) ? $set['fields'] : ['*'];
         $table = $table ? $table . '.' : '';
         $fields = '';
         foreach ($set['fields'] as $field) {
@@ -46,7 +46,7 @@ abstract class BaseModelMethods
         $table = $table ? $table . '.' : '';
         $where = '';
 
-        if (is_array($set['where']) and !empty($set['where'])) {
+        if (!empty($set['where']) and is_array($set['where'])) {
             @$set['operand'] = (is_array($set['operand']) and !empty($set['operand'])) ? $set['operand'] : ['='];
             @$set['condition'] = (is_array($set['condition']) and !empty($set['condition'])) ? $set['condition'] : ['AND'];
 
@@ -111,6 +111,7 @@ abstract class BaseModelMethods
         $fields = '';
         $join = '';
         $where = '';
+        $tables = '';
         if (!empty($set['join'])) {
             $join_table = $table;
             foreach ($set['join'] as $key => $item) {
@@ -137,14 +138,15 @@ abstract class BaseModelMethods
                             break;
                     }
                     if (!empty($item['type'])) $join .= 'LEFT JOIN ';
-                    else $join .= trim(strtoupper($item['type'])) . ' JOIN ';
+                    else $join .= trim(strtoupper(@$item['type'])) . ' JOIN ';
 
                     $join .= $key . ' ON ';
-                    if ($item['on']['table']) $join .= $item['on']['table'];
+                    if (@$item['on']['table']) $join .= $item['on']['table'];
                     else $join .= $join_table;
 
                     $join .= '.' . $join_fields[0] . '=' . $key . '.' . $join_fields[1];
                     $join_table = $key;
+                    $tables .= ', ' . trim($join_table);
                     if ($new_where) {
                         if ($item['where']) {
                             $new_where = false;
@@ -159,7 +161,7 @@ abstract class BaseModelMethods
                 }
             }
         }
-        return compact('fields', 'where', 'join');
+        return compact('fields', 'where', 'join', 'tables');
     }
 
     protected function createInsert($fields, $files, $except)
@@ -201,6 +203,8 @@ abstract class BaseModelMethods
                 $update .= $row . '=';
                 if (in_array($value, $this->sqlFunc)) {
                     $update .= $value . ',';
+                } elseif ($value === NULL) {
+                    $update .= "NULL" . ',';
                 } else {
                     $update .= "'" . addslashes($value) . "'" . ',';
                 }

@@ -66,3 +66,63 @@ Fault: 27-09-2023 10:54:54 - Ошибка в SQL запросе UPDATE teachers 
 fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
 in line33
 
+Fault: 27-09-2023 12:41:16 - Ошибка в SQL запросе INSERT INTO stundes (name,text) VALUES ('student_0','text_0') - 1146 Table 'phpshop.stundes' doesn't exist
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 12:51:16 - Ошибка в SQL запросе UPDATE teachers SET  WHERE teachers.id='1'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE teachers.id='1'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 12:53:57 - Ошибка в SQL запросе UPDATE teachers SET  WHERE teachers.id='1'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE teachers.id='1'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 12:54:59 - Ошибка в SQL запросе UPDATE teachers SET  WHERE teachers.id='1'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE teachers.id='1'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 12:55:44 - Ошибка в SQL запросе UPDATE teachers SET  WHERE teachers.id='1'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE teachers.id='1'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 12:56:36 - Ошибка в SQL запросе UPDATE teachers SET  WHERE teachers.id='1'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE teachers.id='1'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 13:01:38 - Ошибка в SQL запросе DELETEteachersFROM teachers  WHERE teachers.id='25'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELETEteachersFROM teachers  WHERE teachers.id='25'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:39:01 - Ошибка в SQL запросе DELETEteachersFROM teachers  WHERE teachers.id='25'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELETEteachersFROM teachers  WHERE teachers.id='25'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:39:43 - Ошибка в SQL запросе DELETEteachersFROM teachers  WHERE teachers.id='25'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELETEteachersFROM teachers  WHERE teachers.id='25'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:40:04 - Ошибка в SQL запросе DELETE teachersFROM teachers  WHERE teachers.id='25'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'teachers  WHERE teachers.id='25'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:43:03 - Ошибка в SQL запросе DELETE teachers , studentsFROM teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:43:31 - Ошибка в SQL запросе DELETE teachers , studentsFROM teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:43:53 - Ошибка в SQL запросе DELETE teachers , studentsFROM teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:44:28 - Ошибка в SQL запросе DELETE teachers , studentsFROM teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+
+Fault: 27-09-2023 14:45:05 - Ошибка в SQL запросе DELETE teachers , studentsFROM teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'teachers  JOIN students ON teachers.student_id=students.id WHERE teachers.id='3'' at line 1
+fileC:\OSPanel\domains\phpShop\core\base\models\BaseModel.php
+in line33
+

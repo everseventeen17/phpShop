@@ -14,15 +14,15 @@ class IndexController extends BaseController
 
 
         $table = 'teachers';
-        $_POST['id'] = 3;
-        $_POST['name'] = 'OKSANSA';
-        $_POST['text'] = 'TOP TEXT IN THE WORLD';
+        $res = $db->delete($table, [
+            'where' => ['id' => 3],
+            'join' => [
+                'students' => [
+                    'on' => ['student_id', 'id' ],
+                ]
+            ],
+        ]);
 
-        $querry = $db->edit($table);
-
-        echo "<pre>";
-        print_r($querry);
-        echo "</pre>";
 
     }
 }
