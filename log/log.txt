@@ -119,3 +119,39 @@ Fault: 28-09-2023 16:27:53 - Не верное имя файла для подк
 fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
 in line28
 
+Fault: 28-09-2023 16:47:29 - Не верное имя файла для подключения - core/user/controllers/CoreController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:48:05 - Не верное имя файла для подключения - core/user/controllers/CoreController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:48:27 - Не верное имя файла для подключения - core/user/controllers/CoreController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:49:54 - Не верное имя файла для подключения - core/user/controllers/CoreController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:52:01 - Не верное имя файла для подключения - core/user/controllers/AdminController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 17:01:02 - Не верное имя файла для подключения - core/admin/controllers/AdminController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 17:13:53 - Не верное имя файла для подключения - core/user/controllers/AdmincreatesitemapController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 17:27:43 - Не верное имя файла для подключения - core/admin/controllers/StudentsController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 17:27:47 - Не верное имя файла для подключения - core/plugins/shop/false/IndexController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+

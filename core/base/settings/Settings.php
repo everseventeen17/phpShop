@@ -11,6 +11,11 @@ class Settings
         'textArea' => ['content',],
     ];
     private $dafaultTable = ['table' => 'teachers'];
+    private $projectTables = [
+        'teachers' => ['name' => 'Учителя', 'img' => 'pages.png'],
+        'students' => ['name' => 'Студенты', 'img' => 'pages.png'],
+
+    ];
     private $routes = [
         "admin" => [
             "alias" => "admin",

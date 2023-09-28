@@ -50,7 +50,7 @@ class RouteController extends BaseController
             if (!empty($url[1])) {
                 $count = count($url);
                 $key = '';
-                if (!$hrUrl) {
+                if (empty($hrUrl)) {
                     $i = 1;
                 } else {
                     $this->parametrs['alias'] = $url[1];

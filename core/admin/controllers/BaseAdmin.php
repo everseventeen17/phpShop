@@ -23,7 +23,7 @@ abstract class BaseAdmin extends BaseController
         $this->title = 'Engine';
         if (empty($this->model)) @$this->model = Model::instance();
         if (empty($this->menu)) @$this->menu = Settings::get('projectTables');
-        if (empty($this->adminPath)) @$this->adminPath = Settings::get('routes')['admin']['alias'] . '/';
+        if (empty($this->adminPath)) @$this->adminPath = PATH . Settings::get('routes')['admin']['alias'] . '/';
 
         $this->sendNoCacheHeaders();
     }
@@ -51,10 +51,9 @@ abstract class BaseAdmin extends BaseController
     protected function createTableData()
     {
         if (empty($this->table)) {
-            if (!empty($this->parametrs)) $this->table = array_keys($this->parametrs[0]);
+            if (!empty($this->parametrs)) $this->table = array_keys($this->parametrs)[0];
             else $this->table = @Settings::get('defaultTable');
         }
-        $this->table = Settings::get('dafaultTable')['table'];
         $this->columns = $this->model->showColumns($this->table);
         if (empty($this->columns)) new RouteException('Не найдены поля в таблице - ' . $this->table, 2);
     }
