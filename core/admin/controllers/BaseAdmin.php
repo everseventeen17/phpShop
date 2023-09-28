@@ -23,22 +23,24 @@ abstract class BaseAdmin extends BaseController
         $this->title = 'Engine';
         if (empty($this->model)) @$this->model = Model::instance();
         if (empty($this->menu)) @$this->menu = Settings::get('projectTables');
-        if (empty($this->adminPath)) @$this->adminPath = Settings::get('routes')['admin']['alias'] . '/' ;
+        if (empty($this->adminPath)) @$this->adminPath = Settings::get('routes')['admin']['alias'] . '/';
 
         $this->sendNoCacheHeaders();
     }
 
     protected function outputData()
     {
-
+        $this->header = $this->render(ADMIN_TEMPLATE . 'include/header');
+        $this->footer = $this->render(ADMIN_TEMPLATE . 'include/footer');
+        return $this->render(ADMIN_TEMPLATE . 'layout/default');
     }
 
     protected function sendNoCacheHeaders()
     {
-        header('Last - Modified:  ' . gmdate("D, d m Y H:i:s ") . ' GMT');
-        header('Cache - Control: no - cache, must - revalidate');
-        header('Cache - Control:  max - age = 0');
-        header('Cache - Control:  post - check = 0, pre - check = 0');
+        header('Last-Modified:  ' . gmdate("D, d m Y H:i:s ") . ' GMT');
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Cache-Control:  max - age = 0');
+        header('Cache-Control:  post - check = 0, pre - check = 0');
     }
 
     protected function execBase()

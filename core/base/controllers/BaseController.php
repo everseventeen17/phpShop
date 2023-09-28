@@ -8,7 +8,11 @@ use core\base\settings\Settings;
 abstract class BaseController
 {
     use \core\base\controllers\BaseMethods;
+
     protected $page;
+    protected $header;
+    protected $content;
+    protected $footer;
     protected $errors;
 
     protected $controller;
@@ -16,6 +20,7 @@ abstract class BaseController
     protected $outputMethod;
     protected $parametrs;
 
+    protected $template;
     protected $styles;
     protected $scripts;
 
@@ -45,6 +50,7 @@ abstract class BaseController
             }
         }
     }
+
     public function route()
     {
         $controller = str_replace('/', '\\', $this->controller);
@@ -109,6 +115,5 @@ abstract class BaseController
         } else {
             echo $this->page;
         }
-        exit();
     }
 }

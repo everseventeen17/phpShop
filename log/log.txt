@@ -43,3 +43,79 @@ Fault: 28-09-2023 11:56:34 - Не верное имя файла для подк
 fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
 in line27
 
+Fault: 28-09-2023 16:07:13 - Отсутсвтует шаблон для подключения - core/admin/views/show
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line106
+
+Fault: 28-09-2023 16:16:24 - Не верное имя файла для подключения - core/admin/controllers/EditController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:16:48 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:16:49 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:17:00 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:17:04 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:17:16 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:17:19 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:26:08 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:26:53 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:17 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:18 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:25 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:27 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:28 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:28 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:51 - Не верное имя файла для подключения - core/plugins/shop/false/ShowController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:53 - Не верное имя файла для подключения - core/plugins/shop/false/IndexController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 28-09-2023 16:27:53 - Не верное имя файла для подключения - core/plugins/shop/false/IndexController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+

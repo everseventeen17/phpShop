@@ -2,7 +2,8 @@
 defined('VG_ACCESS') or die('Access denied');
  use core\base\exceptions\RouteException;
 const TEMPLATE = "templates/default/";
-const ADMIN_TEMPLATE = "core/admin/views";
+const ADMIN_TEMPLATE = "core/admin/views/";
+ const UPLOAD_DIR = "upload/";
 const COOKIE_VERSION = "1.0.0";
 const COOKIE_TIME = "60";
 const CRYPT_KEY = "";
@@ -12,7 +13,7 @@ const QTY = "8";
 const QTY_LINKS = "3";
 
 const ADMIN_CSS_JS  = [
-    "styles" => [],
+    "styles" => ['css/main.css'],
     "scripts" => []
 ];
 const USER_CSS_JS  = [

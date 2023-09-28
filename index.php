@@ -17,7 +17,5 @@ try {
     RouteController::instance()->route();
 
 } catch (RouteException $e) {
-    echo "<pre>";
-    print_r($e->getMessage());
-    echo "</pre>";
+    $e->getMessage();
 }
