@@ -35,3 +35,11 @@ Fault: 27-09-2023 15:57:53 - Method core\admin\controllers\ShowController::reque
 fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
 in line61
 
+Fault: 28-09-2023 11:56:34 - Не верное имя файла для подключения - core/user/controllers/DirController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line27
+
+Fault: 28-09-2023 11:56:34 - Не верное имя файла для подключения - core/user/controllers/DirController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line27
+

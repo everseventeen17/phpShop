@@ -40,6 +40,7 @@ class Settings
             "outputMethod" => "outputData",
         ],
     ];
+    private $expansion = ['path' => 'core/admin/expansion/'];
 
 
     static public function get($property)

@@ -4,13 +4,13 @@ namespace core\base\models;
 
 use core\base\exceptions\DbException;
 
-class BaseModel extends BaseModelMethods
+abstract class BaseModel extends BaseModelMethods
 {
-    use \core\base\controllers\Singleton;
+
 
     protected $db;
 
-    private function __construct()
+    protected function connect()
     {
         $this->db = @new \mysqli(HOST, USER, PASS, DB_NAME);
         if ($this->db->connect_error) {
@@ -125,9 +125,6 @@ class BaseModel extends BaseModelMethods
         $limit = isset($set['limit']) ? 'LIMIT ' . $set['limit'] : '';
 
         $query = "SELECT $fields FROM $table $join $where $order $limit";
-        echo "<pre>";
-        print_r($query);
-        echo "</pre>";
         return $this->query($query);
     }
 
