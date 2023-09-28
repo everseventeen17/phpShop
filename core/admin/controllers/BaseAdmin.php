@@ -13,6 +13,7 @@ abstract class BaseAdmin extends BaseController
     protected $table;
     protected $columns;
     protected $data;
+    protected $adminPath;
     protected $menu;
     protected $title;
 
@@ -22,6 +23,8 @@ abstract class BaseAdmin extends BaseController
         $this->title = 'Engine';
         if (empty($this->model)) @$this->model = Model::instance();
         if (empty($this->menu)) @$this->menu = Settings::get('projectTables');
+        if (empty($this->adminPath)) @$this->adminPath = Settings::get('routes')['admin']['alias'] . '/' ;
+
         $this->sendNoCacheHeaders();
     }
 
@@ -32,10 +35,10 @@ abstract class BaseAdmin extends BaseController
 
     protected function sendNoCacheHeaders()
     {
-        header('Last-Modified:  ' . gmdate("D, d m Y H:i:s ") . ' GMT');
-        header('Cache-Control: no-cache, must-revalidate');
-        header('Cache-Control:  max-age=0');
-        header('Cache-Control:  post-check=0, pre-check=0');
+        header('Last - Modified:  ' . gmdate("D, d m Y H:i:s ") . ' GMT');
+        header('Cache - Control: no - cache, must - revalidate');
+        header('Cache - Control:  max - age = 0');
+        header('Cache - Control:  post - check = 0, pre - check = 0');
     }
 
     protected function execBase()
@@ -51,24 +54,41 @@ abstract class BaseAdmin extends BaseController
         }
         $this->table = Settings::get('dafaultTable')['table'];
         $this->columns = $this->model->showColumns($this->table);
-        if (empty($this->columns)) new RouteException('Не найдены поля в таблице -' . $this->table, 2);
+        if (empty($this->columns)) new RouteException('Не найдены поля в таблице - ' . $this->table, 2);
     }
 
 
-
-    protected function expansion($args = [])
+    protected function expansion($args = [], $settings = false)
     {
         $fileName = explode('_', $this->table);
         $className = '';
         foreach ($fileName as $item) {
             $className .= ucfirst($item);
         }
-        $class = Settings::get('expansion')['path'] . $className .  'Expansion';
-       if(is_readable($_SERVER['DOCUMENT_ROOT'] . PATH . $class . '.php')){
-           $class =  str_replace('/', '\\', $class);
-           $exp = $class::instance();
-            $res = $exp->expansion($args);
-       }
+        if (!$settings) {
+            $path = Settings::get('expansion')['path'];
+        } elseif (is_object($settings)) {
+            $path = $settings::get('expansion')['path'];
+        } else {
+            $path = $settings;
+        }
+
+        $class = $path . $className . 'Expansion';
+
+        if (is_readable($_SERVER['DOCUMENT_ROOT'] . PATH . $class . ' . php')) {
+            $class = str_replace(' / ', '\\', $class);
+            $exp = $class::instance();
+
+            foreach ($this as $name => $value) {
+                $exp->$name = $this->$name;
+            }
+            return $exp->expansion($args);
+        } else {
+            $file = $_SERVER['DOCUMENT_ROOT'] . PATH . $path . $this->table . ' . php';
+            extract($args);
+            if (is_readable($file)) return include $file;
+        }
+        return false;
     }
 
 }
