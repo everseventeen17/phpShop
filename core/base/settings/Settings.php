@@ -10,7 +10,7 @@ class Settings
         'text' => ['name', 'phone', 'adress',],
         'textArea' => ['content',],
     ];
-    private $dafaultTable = ['table' => 'teachers'];
+    private $defaultTable = ['table' => 'teachers'];
     private $projectTables = [
         'teachers' => ['name' => 'Учителя', 'img' => 'pages.png'],
         'students' => ['name' => 'Студенты', 'img' => 'pages.png'],

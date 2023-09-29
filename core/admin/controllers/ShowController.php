@@ -32,8 +32,8 @@ class ShowController extends BaseAdmin
         $order_direction = [];
         if (empty($this->columns['id_row'])) return $this->data = [];
         $fields[] = $this->columns['id_row'] . ' as id';
-        if ($this->columns['name']) $fields['name'] = 'name';
-        if ($this->columns['img']) $fields['img'] = 'img';
+        if (@$this->columns['name']) $fields['name'] = 'name';
+        if (@$this->columns['img']) $fields['img'] = 'img';
         if (count($fields) < 3) {
             foreach ($this->columns as $key => $item) {
                 if (!empty($fields['name']) and strpos($key, 'name') !== false) {
@@ -56,7 +56,7 @@ class ShowController extends BaseAdmin
             $order[] = 'parent_id';
         }
         if (!empty($this->columns['menu_position'])) $order[] = 'menu_position';
-        elseif ($this->columns['date']) {
+        elseif (@$this->columns['date']) {
 
             if ($order) $order_direction = ['ASC', 'DESC'];
             else $order_direction[] = 'DESC';

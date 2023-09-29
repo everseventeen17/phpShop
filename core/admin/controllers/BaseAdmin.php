@@ -52,7 +52,7 @@ abstract class BaseAdmin extends BaseController
     {
         if (empty($this->table)) {
             if (!empty($this->parametrs)) $this->table = array_keys($this->parametrs)[0];
-            else $this->table = @Settings::get('defaultTable');
+            else $this->table = @Settings::get('defaultTable')['table'];
         }
         $this->columns = $this->model->showColumns($this->table);
         if (empty($this->columns)) new RouteException('Не найдены поля в таблице - ' . $this->table, 2);
