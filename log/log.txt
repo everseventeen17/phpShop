@@ -290,3 +290,47 @@ Fault: 01-12-2023 12:20:19 - Отсутсвтует шаблон для подк
 fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
 in line108
 
+Fault: 01-12-2023 13:23:47 - Не верное имя файла для подключения - core/admin/controllers/EditController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 01-12-2023 13:23:51 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 14:28:55 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:35:21 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:36:06 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:36:13 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:37:33 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:40:10 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:40:19 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:42:09 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 15:42:51 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
