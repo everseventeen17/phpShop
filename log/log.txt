@@ -1,0 +1,292 @@
+Fault: 01-12-2023 10:21:56 - Не верное имя файла для подключения - core/user/controllers/AdmincreatesitemapController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 01-12-2023 10:41:00 - Не верное имя файла для подключения - core/admin/controllers/AddController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 01-12-2023 10:45:14 - Не верное имя файла для подключения - core/admin/controllers/AddController
+fileC:\OSPanel\domains\phpShop\core\base\settings\internal_settings.php
+in line28
+
+Fault: 01-12-2023 11:09:32 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:46:41 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:46:44 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:48:31 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:48:51 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:49:18 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:49:41 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:50:15 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:50:33 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:51:18 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:51:41 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:51:53 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:52:09 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:52:17 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:52:28 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:52:52 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:53:26 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:53:41 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:53:46 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:53:55 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:54:34 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:55:17 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:55:33 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:57:05 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:57:17 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:57:47 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:57:59 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:58:09 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:58:17 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:58:31 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:58:39 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 11:59:16 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:00:26 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:00:39 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:00:58 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:02:26 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:02:40 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:03:10 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:03:38 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:04:03 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:05:28 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:06:07 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:07:13 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:08:00 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:08:53 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:10:13 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:10:27 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:11:05 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:11:39 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:12:28 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:13:03 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:13:17 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:13:44 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:14:47 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:15:18 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:15:32 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:15:48 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:16:06 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:16:44 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:17:13 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:17:37 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:17:58 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:18:45 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:18:51 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:19:05 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:19:11 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:19:22 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:19:26 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:19:36 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+
+Fault: 01-12-2023 12:20:19 - Отсутсвтует шаблон для подключения - core/admin/views/add
+fileC:\OSPanel\domains\phpShop\core\base\controllers\BaseController.php
+in line108
+

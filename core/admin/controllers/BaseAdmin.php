@@ -16,6 +16,8 @@ abstract class BaseAdmin extends BaseController
     protected $adminPath;
     protected $menu;
     protected $title;
+    protected $translate;
+    protected $blocks = [];
 
     protected function inputData()
     {
@@ -30,6 +32,12 @@ abstract class BaseAdmin extends BaseController
 
     protected function outputData()
     {
+        if(!$this->content){
+            $args = func_get_arg(0);
+            $vars = $args ? $args : [];
+           // if (empty($this->template)) $this->template = ADMIN_TEMPLATE . 'show';
+            $this->content = $this->render($this->template, $vars);
+        }
         $this->header = $this->render(ADMIN_TEMPLATE . 'include/header');
         $this->footer = $this->render(ADMIN_TEMPLATE . 'include/footer');
         return $this->render(ADMIN_TEMPLATE . 'layout/default');
@@ -48,11 +56,14 @@ abstract class BaseAdmin extends BaseController
         self::inputData();
     }
 
-    protected function createTableData()
+    protected function createTableData($settings = false)
     {
         if (empty($this->table)) {
             if (!empty($this->parametrs)) $this->table = array_keys($this->parametrs)[0];
-            else $this->table = @Settings::get('defaultTable')['table'];
+            else {
+                if(!$settings) $settings = Settings::instance();
+                $this->table = $settings::get('defaultTable')['table'];
+            }
         }
         $this->columns = $this->model->showColumns($this->table);
         if (empty($this->columns)) new RouteException('Не найдены поля в таблице - ' . $this->table, 2);
@@ -90,6 +101,38 @@ abstract class BaseAdmin extends BaseController
             if (is_readable($file)) return include $file;
         }
         return false;
+    }
+
+    protected function createOutputData($settings = false)
+    {
+        if(!$settings) $settings = Settings::instance();
+        $blocks = $settings::get('blockNeedle');
+        $this->translate = $settings::get('translate');
+
+        if(!empty($blocks) || is_array($blocks)){
+            foreach($this->columns as $name => $value){
+
+                if($name === 'id_row') continue;
+                if(!isset($this->translate[$name])){
+                    $this->translate[$name][] = $name;
+                }
+                $this->blocks[0][] = $name;
+            }
+        }
+        $default = array_keys($blocks)[0];
+        foreach($this->columns as $name => $item){
+            if($name === 'id_row') continue;
+            $insert = false;
+            foreach($blocks as $block => $value){
+                if(!array_key_exists($block, $this->blocks)) $this->blocks[$block] = [];
+                if(in_array($name, $value)){
+                    $this->blocks[$block][] = $name;
+                    $insert = true;
+                    break;
+                }
+            }
+            if(!$insert) $this->blocks[$default][] = $name;
+        }
     }
 
 }

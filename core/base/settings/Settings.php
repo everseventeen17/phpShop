@@ -46,6 +46,16 @@ class Settings
         ],
     ];
     private $expansion = ['path' => 'core/admin/expansion/'];
+    private $translate = [
+        'name'=>['Название', 'Не более 100 символов'],
+        'text'=>[],
+
+    ];
+    private $blockNeedle = [
+        'vg-rows'=> [],
+        'vg-img'=>['id'],
+        'vg-content' =>['text'],
+    ];
 
 
     static public function get($property)

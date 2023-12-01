@@ -24,6 +24,8 @@ abstract class BaseController
     protected $styles;
     protected $scripts;
 
+    protected $userId;
+
     protected function init($admin = false)
     {
         if (!$admin) {
